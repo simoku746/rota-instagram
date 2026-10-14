@@ -12,3 +12,7 @@
 
 Gerekli gizli ayarlar (Settings → Secrets and variables → Actions): `IG_TOKEN`, `IG_USER_ID`, `GH_PAT` (anahtar yenileme için).
 Bir gönderiyi beklemeden denemek için: Actions → "Instagram'a paylaş" → Run workflow.
+
+## Stüdyo (içerik üretimi)
+`studio/render.py` bir gönderi klasöründeki `spec.json` dosyasından marka renklerinde görselleri ve `post.json`'u üretir.
+Haftalık görevin izlediği adımlar: `studio/HAFTALIK-GOREV.md`.
