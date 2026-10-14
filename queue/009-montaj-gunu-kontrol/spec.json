@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-22",
+  "kind": "karusel",
+  "tag": "Kontrol listesi",
+  "step_label": "Kontrol",
+  "cover": {
+    "big": "4",
+    "title": "montaj öncesi",
+    "title_orange": "kontrol.",
+    "body": "Araca yüklemeden önce bu dört soruyu sorun. Sahada yarım kalan işlerin çoğu burada yakalanır."
+  },
+  "slides": [
+    {
+      "title": "Son onay<br>alındı mı?",
+      "problem": "Ölçü, renk ya da yazı sahada tartışılır; ekip bekler, iş ikinci bir güne kalır. Son onayın tarihi ve hangi versiyon olduğu yazılı olsun.",
+      "fix": "Onay kartta görünür; onay gelmeden iş üretime geçmez.",
+      "screen": "ekran-musteri-onayi.jpg"
+    },
+    {
+      "title": "Malzeme<br>araçta mı?",
+      "problem": "Ekip yarı yoldan atölyeye döner, montaj saati kayar. Eksik malzeme bir gün önce bilinirse sipariş zamanında verilir.",
+      "fix": "Stok hareketlerden hesaplanır; kritik malzeme önceden uyarı verir.",
+      "screen": "ekran-depo-stok.jpg"
+    },
+    {
+      "title": "Ekip ve saat<br>belli mi?",
+      "problem": "Ekip sabah \"bugün neredeyiz?\" diye arar, müşteri kapıda bekler. Plan önceden herkesin önünde olsun.",
+      "fix": "Haftalık montaj planında ekip, gün ve saat tek bakışta.",
+      "screen": "ekran-haftalik-plan.jpg"
+    },
+    {
+      "title": "Bitince kim<br>haberdar olacak?",
+      "problem": "Fatura bir sonraki haftaya kalır, tahsilat gecikir. İşin bittiği an ilgili kişiye haber gitsin.",
+      "fix": "Montaj bitince muhasebe otomatik haberdar olur.",
+      "screen": "ekran-gorev-yonetimi.jpg"
+    }
+  ],
+  "cta": {
+    "title": "Listeyi kaydedin,",
+    "title_orange": "montaj sabahı açın.",
+    "body": "Bu kontrolleri her işin kartında görmek için ROTA'yı 15 gün ücretsiz deneyin."
+  },
+  "caption": "Montaj ekibi yola çıktı, bir parça atölyede kaldı. Tanıdık mı?\n\nAraca yüklemeden önce 4 soru:\n1. Müşterinin son onayı alındı mı?\n2. Malzeme araçta mı?\n3. Ekip ve saat belli mi?\n4. Bitince muhasebe haberdar olacak mı?\n\nKaydedin, montaj ekibinize gönderin. ROTA'da bu dördü işin kartında görünür.\n\n15 gün ücretsiz, kredi kartı yok → rotasigns.com\n\n#tabelacı #reklamatölyesi #kutuharf #ledtabela #ROTA"
+}

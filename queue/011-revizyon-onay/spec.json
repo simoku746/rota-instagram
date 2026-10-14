@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-24",
+  "kind": "sohbet",
+  "tag": "Tanıdık geldi mi?",
+  "title": "Hangi revizyon",
+  "title_orange": "onaylanmıştı?",
+  "group": "Atölye Grubu",
+  "members": "Ayşe, Murat, Kemal",
+  "messages": [
+    [
+      "Kemal",
+      "Ege Mobilya'nın tabelası baskıya girsin mi?",
+      "10:12"
+    ],
+    [
+      "Ayşe",
+      "Hangi versiyon? 3 tane gönderdik",
+      "10:14"
+    ],
+    [
+      "Murat",
+      "Müşteri sesli mesajda 2. dedi galiba",
+      "10:21"
+    ],
+    [
+      null,
+      "Galiba mı? Ben arayıp soruyorum 😅",
+      "10:25"
+    ]
+  ],
+  "card": {
+    "label": "ROTA · İş kartı",
+    "title": "Ege Mobilya · Kutu harf",
+    "lines": [
+      [
+        "Revizyon",
+        "3. versiyon"
+      ],
+      [
+        "Müşteri onayı",
+        "Onaylandı"
+      ],
+      [
+        "Sonraki adım",
+        "Üretim"
+      ]
+    ]
+  },
+  "caption": "Üç versiyon gönderildi, onay sesli mesajda kaldı. Baskıya hangisi girecek?\n\nRevizyonlar WhatsApp'ta dağılınca yanlış dosya üretime gider, malzeme ve emek boşa gider.\n\nROTA'da revizyon ve müşteri onayı işin kartında tutulur. Onay gelmeden iş üretime geçmez.\n\nCanlı demoyu gezin → rotasigns.com/demo\n\n#tabelacı #reklamatölyesi #kutuharf #reklamcılar #ROTA"
+}
