@@ -56,7 +56,7 @@ def brand(tag=''):
     t = f'<div class="tag mono">{e(tag)}</div>' if tag else ''
     return f'<div class="top"><div class="brand">{MARK}ROTA</div>{t}</div>'
 
-def bottom(left='<b>rotasigns.com</b>', right='15 gün ücretsiz'):
+def bottom(left='<b>rotasigns.com</b>', right='14 gün ücretsiz'):
     return f'<div class="bottom"><span>{left}</span><span>{right}</span></div>'
 
 def frame(img, style):

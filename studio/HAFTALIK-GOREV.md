@@ -5,7 +5,8 @@ Bu dosya, her pazartesi çalışan zamanlanmış görevin izleyeceği adımlard�
 ## Marka
 - **ROTA** (rotasigns.com): tabela, reklam ve üretim atölyeleri için tarayıcıdan çalışan iş takip programı.
 - Modüller: teklif listesi (kabul edilen teklif tek adımda işe dönüşür), görev yönetimi (kart sürüklenince iş devredilir, sorumlu bildirim alır), müşteri onayı/revizyon kartta (onay gelmeden üretime geçilmez), haftalık üretim ve montaj planı, depo/stok (hareketlerden hesaplanır, kritik stok uyarısı), kasa/banka/tahsilat (montaj bitince muhasebe haberdar olur), roller (yönetici, tasarım, üretim, montaj, muhasebe).
-- Teklif: 15 gün ücretsiz deneme, kredi kartı yok, kullanıcı sınırı yok. Canlı demo: rotasigns.com/demo. WhatsApp: 0543 311 53 47.
+- Teklif: 14 gün ücretsiz deneme hesabı, kredi kartı gerekmez, en fazla 5 kullanıcı, hesap örnek verilerle hazır gelir, istenince kendi verine geçilir. Hesap açmadan örnek verilerle gezinti de var (sitedeki "Hesap açmadan gezin" düğmesi). Çağrılarda yalnızca rotasigns.com adresini ver. WhatsApp: 0543 311 53 47.
+- Asla yazma: "kullanıcı sınırı yok", "15 gün", "kurulumu birlikte yapıyoruz", "rotasigns.com/demo".
 - Ton: pratik, sahayı bilen, sakin, açık sözlü. "Devrim", "sektör lideri", "kusursuz" yok.
 - **Asla uydurma:** müşteri adı, referans, yorum, istatistik, fiyat, entegrasyon. Örnek hesaplar açıkça "örnek" diye yazılır. Sohbetlerdeki kişi ve firma adları kurgusal ve sıradan olmalı (Ayşe, Murat, "Ege Mobilya" gibi), gerçek bir firmayı çağrıştırmamalı.
 
@@ -16,7 +17,7 @@ Bu dosya, her pazartesi çalışan zamanlanmış görevin izleyeceği adımlard�
 4. **Haftalık karışım:** 1 `karusel` (eğitici, 3–5 slayt), 3 `ozellik`, 1 `sohbet`, 1 `istatistik` (yalnızca açık örnek hesap), 1 `cagri`. Her `ozellik` farklı modülü ve farklı ekran görüntüsünü kullansın.
 5. **Konu havuzu (dön dolaş):** keşiften teklife; teklifi işe çevirme; revizyon ve müşteri onayı; kutu harf üretim adımları; montaj günü kontrol listesi; stok ve kritik malzeme; tahsilat ve kapora takibi; rol ve yetkiler; atölyede günlük 10 dakikalık toplantı; Excel ve WhatsApp'tan geçiş; yoğun sezonda planlama; yeni eleman alıştırma.
 6. Her gönderi için `queue/NNN-.../spec.json` yaz (alanlar `studio/render.py` başında). Ekran adları: `studio/assets/` içindeki `ekran-*.jpg` dosyaları.
-7. **Açıklama metni (caption):** açılış cümlesi tanıdık bir atölye durumu, 2–4 kısa paragraf, tek çağrı (demo ya da ücretsiz deneme), **en fazla 5 hashtag**. Hashtag havuzu: #tabelacı #reklamatölyesi #iştakipprogramı #kutuharf #ledtabela #üretimplanlama #reklamcılar #ROTA.
+7. **Açıklama metni (caption):** açılış cümlesi tanıdık bir atölye durumu, 2–4 kısa paragraf, tek çağrı (hesap açmadan gezinti ya da 14 gün ücretsiz deneme), **en fazla 5 hashtag**. Hashtag havuzu: #tabelacı #reklamatölyesi #iştakipprogramı #kutuharf #ledtabela #üretimplanlama #reklamcılar #ROTA.
 8. Çalıştır: `python3 studio/render.py queue/NNN-... queue/NNN+1-...` (hepsini tek seferde).
 9. **Kontrol:** üretilen JPEG'lerin hepsine bak (küçültülmüş bir temas sayfası yapıp aç). Taşan metin, kesilen başlık, boş kalan alan varsa metni kısaltıp tekrar üret.
 10. **Onaya gönder:**
