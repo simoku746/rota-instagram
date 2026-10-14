@@ -14,8 +14,21 @@ import datetime as dt, json, os, pathlib, sys, time, urllib.error, urllib.parse,
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 QUEUE = ROOT / 'queue'
-TOKEN = os.environ.get('IG_TOKEN', '')
-UID = os.environ.get('IG_USER_ID') or 'me'
+def _pick():
+    """Accept IG_TOKEN / IG_USER_ID, or any extra secrets (SECRET_A/B): numbers = user id, long text = token."""
+    tok, uid = os.environ.get('IG_TOKEN', '').strip(), os.environ.get('IG_USER_ID', '').strip()
+    for k in ('SECRET_A', 'SECRET_B'):
+        v = os.environ.get(k, '').strip()
+        if not v:
+            continue
+        if v.isdigit():
+            uid = uid or v
+        elif len(v) > 40:
+            tok = tok or v
+    return tok, uid or 'me'
+
+
+TOKEN, UID = _pick()
 BASE = os.environ.get('MEDIA_BASE_URL', '').rstrip('/')
 VER = os.environ.get('IG_API_VERSION', '').strip('/')
 API = 'https://graph.instagram.com' + (f'/{VER}' if VER else '')
@@ -84,7 +97,14 @@ def publish(folder, post):
     return res.get('id')
 
 
+def check():
+    me = call('GET', 'me', fields='user_id,username,account_type')
+    print(f"Bağlantı tamam: @{me.get('username')} ({me.get('account_type')}), user_id={me.get('user_id')}, kullanılan id={UID}")
+
+
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == 'check':
+        return check()
     if not DRY and (not TOKEN or not BASE):
         raise SystemExit('IG_TOKEN and MEDIA_BASE_URL must be set')
     due = []
