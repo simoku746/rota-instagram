@@ -2,18 +2,32 @@ name: Instagram anahtarını yenile
 on:
   schedule:
     - cron: '0 6 1,15 * *'   # ayın 1'i ve 15'i (anahtar 60 gün geçerli)
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      sadece_test:
+        description: 'Sadece GH_PAT iznini test et (anahtarı yenileme)'
+        type: boolean
+        default: false
 jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
+      - name: GH_PAT iznini kontrol et
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then echo "::error::GH_PAT gizli ayarı yok"; exit 1; fi
+          gh secret list --repo "${{ github.repository }}" >/dev/null && echo "::notice::GH_PAT çalışıyor: gizli ayarlara erişim var."
       - name: Yenile ve gizli ayara yaz
+        if: ${{ !inputs.sadece_test }}
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           set -e
-          NEW=$(curl -sf "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${IG_TOKEN}" | python3 -c "import sys,json;print(json.load(sys.stdin)['access_token'])")
+          RESP=$(curl -s "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${IG_TOKEN}")
+          NEW=$(echo "$RESP" | python3 -c "import sys,json;print(json.load(sys.stdin).get('access_token',''))")
+          if [ -z "$NEW" ]; then echo "::error::Yenileme başarısız: $(echo "$RESP" | python3 -c "import sys,json;print(json.load(sys.stdin).get('error',{}).get('message','?'))")"; exit 1; fi
           echo "::add-mask::$NEW"
           gh secret set IG_TOKEN --repo "${{ github.repository }}" --body "$NEW"
-          echo "Anahtar yenilendi."
+          echo "::notice::Instagram anahtarı yenilendi."
