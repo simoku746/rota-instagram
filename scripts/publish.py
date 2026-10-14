@@ -53,7 +53,9 @@ def call(method, path, **params):
             return json.load(r)
     except urllib.error.HTTPError as e:
         body = e.read().decode('utf-8', 'replace')
-        raise SystemExit(f'Instagram API error {e.code} on {method} {path}: {body}')
+        msg = f'Instagram API error {e.code} on {method} {path}: {body}'
+        print(f'::error::{msg}')
+        raise SystemExit(msg)
 
 
 def wait_ready(cid, timeout=900):
@@ -98,7 +100,15 @@ def publish(folder, post):
 
 
 def check():
+    def kind(v):
+        v = (v or '').strip()
+        return 'boş' if not v else ('sayı (' + str(len(v)) + ' hane)' if v.isdigit() else 'metin (' + str(len(v)) + ' karakter)')
+    print('::notice::Gizli ayarlar: ' + ', '.join(f'{k}={kind(os.environ.get(k))}' for k in ('IG_TOKEN', 'IG_USER_ID', 'SECRET_A', 'SECRET_B')))
+    if not TOKEN:
+        print('::error::Erişim anahtarı bulunamadı (uzun metin içeren bir gizli ayar yok).')
+        raise SystemExit(1)
     me = call('GET', 'me', fields='user_id,username,account_type')
+    print(f"::notice::Bağlantı tamam: @{me.get('username')} ({me.get('account_type')})")
     print(f"Bağlantı tamam: @{me.get('username')} ({me.get('account_type')}), user_id={me.get('user_id')}, kullanılan id={UID}")
 
 
