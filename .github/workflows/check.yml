@@ -12,5 +12,5 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           SECRET_A: ${{ secrets.ROTA }}
           SECRET_B: ${{ secrets.ROTA2 }}
-          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID || '1370421786154860' }}
           FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
