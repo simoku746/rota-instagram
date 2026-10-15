@@ -35,4 +35,4 @@ jobs:
           echo "${{ steps.pub.outputs.media_id }}" > "posted/${{ steps.pub.outputs.folder }}/MEDIA_ID"
           git add posted
           git commit -m "Paylaşıldı: ${{ steps.pub.outputs.folder }}"
-          git push
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 5; done
