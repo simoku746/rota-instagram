@@ -99,6 +99,40 @@ def publish(folder, post):
     return res.get('id')
 
 
+# ---------------- Facebook Sayfası (isteğe bağlı) ----------------
+# FB_PAGE_ID + FB_PAGE_TOKEN tanımlıysa, Instagram'a giden gönderi aynı metinle Facebook sayfasına da gider.
+# Facebook tarafında hata olursa Instagram paylaşımı geçerli sayılır; yalnız uyarı yazılır.
+FB_PAGE = os.environ.get('FB_PAGE_ID', '').strip()
+FB_TOKEN = os.environ.get('FB_PAGE_TOKEN', '').strip()
+FB_API = 'https://graph.facebook.com/' + (VER or 'v23.0')
+
+
+def fb_call(path, **params):
+    if DRY:
+        print('DRY FB', path, {k: v for k, v in params.items() if k not in ('message', 'description')})
+        return {'id': f'dry-fb-{abs(hash(str(params))) % 10**6}'}
+    params['access_token'] = FB_TOKEN
+    req = urllib.request.Request(f'{FB_API}/{path}', data=urllib.parse.urlencode(params).encode(), method='POST')
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f'Facebook API error {e.code} on {path}: {e.read().decode("utf-8", "replace")}')
+
+
+def publish_fb(folder, post):
+    kind, files, cap = post['type'], post['files'], post.get('caption', '')
+    if kind == 'image':
+        return fb_call(f'{FB_PAGE}/photos', url=url_for(folder, files[0]), message=cap).get('post_id')
+    if kind == 'carousel':
+        ids = [fb_call(f'{FB_PAGE}/photos', url=url_for(folder, f), published='false')['id'] for f in files]
+        media = {f'attached_media[{i}]': json.dumps({'media_fbid': x}) for i, x in enumerate(ids)}
+        return fb_call(f'{FB_PAGE}/feed', message=cap, **media).get('id')
+    if kind == 'reel':
+        return fb_call(f'{FB_PAGE}/videos', file_url=url_for(folder, files[0]), description=cap).get('id')
+    raise RuntimeError(f'unknown type {kind}')
+
+
 def check():
     def kind(v):
         v = (v or '').strip()
@@ -110,6 +144,15 @@ def check():
     me = call('GET', 'me', fields='user_id,username,account_type')
     print(f"::notice::Bağlantı tamam: @{me.get('username')} ({me.get('account_type')})")
     print(f"Bağlantı tamam: @{me.get('username')} ({me.get('account_type')}), user_id={me.get('user_id')}, kullanılan id={UID}")
+    if FB_PAGE and FB_TOKEN:
+        url = f'{FB_API}/{FB_PAGE}?' + urllib.parse.urlencode({'fields': 'name', 'access_token': FB_TOKEN})
+        try:
+            with urllib.request.urlopen(url, timeout=60) as r:
+                print(f"::notice::Facebook sayfası bağlı: {json.load(r).get('name')}")
+        except urllib.error.HTTPError as e:
+            print(f"::error::Facebook bağlantısı çalışmıyor: {e.read().decode('utf-8', 'replace')[:300]}")
+    else:
+        print('::notice::Facebook ayarları yok (FB_PAGE_ID / FB_PAGE_TOKEN); yalnız Instagram paylaşılır.')
 
 
 def main():
@@ -130,6 +173,12 @@ def main():
     folder, post = due[0]
     media_id = publish(folder, post)
     print(f'PUBLISHED {folder.name} -> media {media_id}')
+    if FB_PAGE and FB_TOKEN:
+        try:
+            fb_id = publish_fb(folder, post)
+            print(f'::notice::Facebook sayfasına da paylaşıldı: {fb_id}')
+        except Exception as e:  # Instagram gönderisi geçerli; Facebook hatası işi durdurmasın
+            print(f'::warning::Facebook paylaşımı başarısız: {str(e)[:400]}')
     out = os.environ.get('GITHUB_OUTPUT')
     if out:
         with open(out, 'a') as fh:

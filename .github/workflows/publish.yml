@@ -1,7 +1,11 @@
 name: Instagram'a paylaş
 on:
   schedule:
-    - cron: '30 9 * * *'   # her gün 12:30 Türkiye saati (09:30 UTC); GitHub birkaç dakika geç başlatabilir
+    - cron: '30 9 * * *'   # her gün 12:30 Türkiye saati (09:30 UTC)
+    # Yedekler: GitHub zamanlanmış işleri bazen geciktiriyor ya da atlıyor. O günün gönderisi zaten
+    # paylaşıldıysa bu çalıştırmalar bir şey yapmaz (günde en fazla 1 gönderi).
+    - cron: '45 11 * * *'  # 14:45
+    - cron: '15 15 * * *'  # 18:15
   workflow_dispatch: {}
 permissions:
   contents: write
@@ -18,6 +22,8 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           SECRET_A: ${{ secrets.ROTA }}
           SECRET_B: ${{ secrets.ROTA2 }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
           MEDIA_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
       - name: Paylaşılanı posted/ klasörüne taşı
         if: steps.pub.outputs.folder != ''
