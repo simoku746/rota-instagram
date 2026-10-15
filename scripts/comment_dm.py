@@ -33,6 +33,17 @@ DM_METNI = (
 GENEL_YANIT = "Bağlantıyı DM'den gönderdik, kutunuza bakabilirsiniz 🙌"
 
 
+LOG = ROOT / 'state' / 'dm-log.json'
+
+
+def log_ekle(tur):
+    """Haftalık rapor için gönderim kaydı: [{"t": ISO zaman, "tur": "yorum"|"karsilama"}]."""
+    kayit = json.loads(LOG.read_text()) if LOG.exists() else []
+    kayit.append({'t': dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds'), 'tur': tur})
+    LOG.parent.mkdir(exist_ok=True)
+    LOG.write_text(json.dumps(kayit[-2000:], indent=0))
+
+
 def norm(t):
     return (t or '').replace('İ', 'i').replace('I', 'ı').lower()
 
@@ -83,6 +94,7 @@ def main():
                 print(f"::warning::@{c.get('username')} için DM gönderilemedi: {e}")
                 continue
             yanitlanan.add(c['id'])
+            log_ekle('yorum')
             print(f"::notice::DM gönderildi: @{c.get('username')}")
             try:
                 api('POST', f"{c['id']}/replies", {'message': GENEL_YANIT})
