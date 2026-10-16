@@ -141,7 +141,9 @@ def check():
     if not TOKEN:
         print('::error::Erişim anahtarı bulunamadı (uzun metin içeren bir gizli ayar yok).')
         raise SystemExit(1)
-    me = call('GET', 'me', fields='user_id,username,account_type')
+    me = call('GET', 'me', fields='user_id,username,account_type,name,biography,website,followers_count,follows_count,media_count,profile_picture_url')
+    print('::notice::Profil: ' + json.dumps({k: me.get(k) for k in ('name', 'biography', 'website', 'followers_count', 'follows_count', 'media_count')}, ensure_ascii=False)[:900])
+    print('::notice::Profil fotoğrafı: ' + ('var' if me.get('profile_picture_url') else 'yok'))
     print(f"::notice::Bağlantı tamam: @{me.get('username')} ({me.get('account_type')})")
     print(f"Bağlantı tamam: @{me.get('username')} ({me.get('account_type')}), user_id={me.get('user_id')}, kullanılan id={UID}")
     if FB_PAGE and FB_TOKEN:
