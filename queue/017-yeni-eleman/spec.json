@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-30",
+  "kind": "sohbet",
+  "tag": "Tanıdık geldi mi?",
+  "title": "Yeni eleman",
+  "title_orange": "ilk gün kime sorsun?",
+  "group": "Atölye Grubu",
+  "members": "Murat, Ayşe, Emre",
+  "messages": [
+    [
+      "Emre",
+      "Günaydın, bugün hangi işle başlıyorum?",
+      "08:41"
+    ],
+    [
+      "Murat",
+      "Ayşe'ye sor, çizimler onda",
+      "08:55"
+    ],
+    [
+      "Emre",
+      "Ayşe Hanım, Kaya İnşaat'ın ölçüleri nerede?",
+      "09:10"
+    ],
+    [
+      null,
+      "Sahadayım, öğlen dönünce bakarız 🙏",
+      "10:32"
+    ]
+  ],
+  "card": {
+    "label": "ROTA · İş kartı",
+    "title": "Kaya İnşaat · Kutu harf",
+    "lines": [
+      [
+        "Sorumlu",
+        "Emre"
+      ],
+      [
+        "Aşama",
+        "Üretim"
+      ],
+      [
+        "Ölçü ve çizim",
+        "Kartta ekli"
+      ]
+    ]
+  },
+  "caption": "Yeni gelen arkadaş sabah işe geldi, ama ne yapacağını bilen kişi sahada. Öğlene kadar bekliyor.\n\nYeni elemanı alıştırmanın en zor kısmı işi öğretmek değil; hangi işin kimde, hangi aşamada olduğunu göstermek.\n\nROTA'da işler kartlarda durur: sorumlu, aşama ve işin geçmişi aynı yerde. Yeni gelen kişi ilk gün kendi kartlarını açıp başlar.\n\nBağlantıyı DM'den göndermemiz için yorumlara DENEME yazın.\n\n#tabelacı #reklamatölyesi #iştakipprogramı #üretimplanlama #ROTA"
+}

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-29",
+  "kind": "karusel",
+  "tag": "Atölye notları",
+  "step_label": "Adım",
+  "cover": {
+    "big": "4",
+    "title": "adımda",
+    "title_orange": "kutu harf.",
+    "body": "Keşiften montaja kadar işin el değiştirdiği dört nokta. Aksamalar çoğunlukla bu geçişlerde olur."
+  },
+  "slides": [
+    {
+      "title": "Keşif ve<br>teklif",
+      "problem": "Ölçü, cephe fotoğrafı ve harf yüksekliği tek yerde olmazsa teklif eksik çıkar, iş başlarken tekrar sahaya gidilir.",
+      "fix": "Teklif kalemleriyle listede durur; kabul edilince tek adımda işe döner.",
+      "screen": "ekran-teklif-listesi.jpg"
+    },
+    {
+      "title": "Tasarım ve<br>müşteri onayı",
+      "problem": "Renk, font ve ışık tercihi netleşmeden kesime girilirse malzeme de emek de boşa gider.",
+      "fix": "Revizyon ve onay kartta; onay gelmeden iş üretime geçmez.",
+      "screen": "ekran-musteri-onayi.jpg"
+    },
+    {
+      "title": "Malzeme ve<br>üretim",
+      "problem": "Pleksi, profil ya da LED üretimin ortasında biterse iş bekler, montaj tarihi kayar.",
+      "fix": "Stok hareketlerden hesaplanır; kritik malzeme önceden uyarı verir.",
+      "screen": "ekran-depo-stok.jpg"
+    },
+    {
+      "title": "Montaj ve<br>teslim",
+      "problem": "Ekip, araç ve saat önceden belli değilse montaj sabahı telefonla planlanır.",
+      "fix": "Haftalık planda ekip ve gün belli; montaj bitince muhasebe haberdar olur.",
+      "screen": "ekran-haftalik-plan.jpg"
+    }
+  ],
+  "cta": {
+    "title": "Dört adım,",
+    "title_orange": "tek iş kartı.",
+    "body": "Bu adımları kendi işlerinizde görmek için ROTA'yı 14 gün ücretsiz deneyin."
+  },
+  "caption": "Kutu harf işi atölyede kaç el değiştiriyor? Satış, tasarım, üretim, montaj… Her geçişte bir bilgi düşebilir.\n\n1. Keşif ve teklif\n2. Tasarım ve müşteri onayı\n3. Malzeme ve üretim\n4. Montaj ve teslim\n\nKaydedin, ekibinize gönderin. ROTA'da bu dört adım aynı iş kartında ilerler.\n\nBağlantıyı DM'den göndermemiz için yorumlara DENEME yazın.\n\n#tabelacı #kutuharf #ledtabela #reklamatölyesi #ROTA"
+}
