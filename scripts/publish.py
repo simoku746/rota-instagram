@@ -162,6 +162,19 @@ def check():
         print('::notice::Facebook ayarları yok (FB_PAGE_ID / FB_PAGE_TOKEN); yalnız Instagram paylaşılır.')
 
 
+def already_posted(post):
+    """Çift paylaşım koruması: son 48 saatteki gönderilerde aynı açıklama varsa True."""
+    cap = (post.get('caption') or '').strip()[:120]
+    if not cap:
+        return False
+    sinir = dt.datetime.utcnow() - dt.timedelta(hours=48)
+    for m in call('GET', f'{UID}/media', fields='caption,timestamp', limit='15').get('data', []):
+        ts = dt.datetime.strptime(m['timestamp'][:19], '%Y-%m-%dT%H:%M:%S')
+        if ts >= sinir and (m.get('caption') or '').strip()[:120] == cap:
+            return True
+    return False
+
+
 def main():
     if len(sys.argv) > 1 and sys.argv[1] == 'check':
         return check()
@@ -179,6 +192,13 @@ def main():
         print('Nothing due today.')
         return
     folder, post = due[0]
+    if not DRY and already_posted(post):
+        print(f'::warning::{folder.name} aynı açıklamayla son 48 saatte zaten paylaşılmış; tekrar paylaşılmadı.')
+        out = os.environ.get('GITHUB_OUTPUT')
+        if out:
+            with open(out, 'a') as fh:
+                fh.write(f'folder={folder.name}\nmedia_id=zaten-paylasilmis\n')
+        return
     media_id = publish(folder, post)
     print(f'PUBLISHED {folder.name} -> media {media_id}')
     if FB_PAGE and FB_TOKEN:

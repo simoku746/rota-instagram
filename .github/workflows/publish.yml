@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with: { ref: main }   # tetiklendiği anın değil, en güncel sıranın kopyası
       - id: pub
         run: python3 scripts/publish.py
         env:
