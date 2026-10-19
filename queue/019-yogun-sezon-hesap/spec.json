@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-01",
+  "kind": "istatistik",
+  "tag": "Örnek hesap",
+  "intro": "Yoğun bir haftada<br>montaj yükü:",
+  "number": "48",
+  "unit": "saat",
+  "boxes": [
+    [
+      "12",
+      "montaj (örnek)"
+    ],
+    [
+      "4 saat",
+      "montaj başına"
+    ],
+    [
+      "2 ekip",
+      "24 saat / ekip"
+    ]
+  ],
+  "note": "Örnek hesaptır. Bu yük sözle dağıtılmaz; hangi ekip hangi gün nerede, haftalık planda önceden görünmeli.",
+  "footer": "Haftalık plan: <b>rotasigns.com</b>",
+  "caption": "Sezon yoğunlaşınca montaj listesi uzar, ekip aynı.\n\nÖrnek hesap: haftada 12 montaj, her biri ortalama 4 saat sürerse 48 saat eder. İki ekiple ekip başına 24 saat; yol ve hazırlık hariç.\n\nBu yükü sabah telefonla dağıtmak yerine haftalık planda görmek, kayan işi erkenden fark ettirir.\n\nBağlantıyı DM'den göndermemiz için yorumlara DENEME yazın.\n\n#tabelacı #reklamatölyesi #üretimplanlama #ledtabela #ROTA"
+}
