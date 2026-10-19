@@ -1,11 +1,10 @@
 name: Instagram'a paylaş
 on:
   schedule:
-    - cron: '30 9 * * *'   # her gün 12:30 Türkiye saati (09:30 UTC)
-    # Yedekler: GitHub zamanlanmış işleri bazen geciktiriyor ya da atlıyor. O günün gönderisi zaten
-    # paylaşıldıysa bu çalıştırmalar bir şey yapmaz (günde en fazla 1 gönderi).
-    - cron: '45 11 * * *'  # 14:45
-    - cron: '15 15 * * *'  # 18:15
+    # Türkiye saatiyle 08:07–22:37 arası her yarım saatte bir. Her çalıştırma, zamanı gelmiş en eski
+    # gönderiyi paylaşır (post.json "date" + "time"); zamanı gelen yoksa hiçbir şey yapmaz.
+    # GitHub zamanlanmış işleri geciktirebilir; kaçan gönderi bir sonraki çalıştırmada çıkar.
+    - cron: '7,37 5-19 * * *'
   workflow_dispatch: {}
 permissions:
   contents: write

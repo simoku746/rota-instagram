@@ -4,7 +4,8 @@ queue/<NNN>-<slug>/post.json:
   {"date": "2026-10-15", "type": "image" | "carousel" | "reel",
    "files": ["1.jpg", ...], "caption": "...", "cover": "kapak.jpg" (reel only, optional)}
 
-A post is due when its date is today or earlier (Europe/Istanbul). One post per run.
+Optional "time": "HH:MM" (Europe/Istanbul, default 12:30). A post is due when its date+time has
+passed. One post per run (the oldest due one); the workflow runs every 30 minutes during the day.
 After publishing, the folder is moved to posted/ by the workflow (see publish.yml).
 
 Env: IG_TOKEN (required), IG_USER_ID (default "me"), MEDIA_BASE_URL (public URL of the repo
@@ -35,8 +36,12 @@ API = 'https://graph.instagram.com' + (f'/{VER}' if VER else '')
 DRY = os.environ.get('DRY_RUN') == '1'
 
 
-def today_tr():
-    return (dt.datetime.utcnow() + dt.timedelta(hours=3)).date()
+def now_tr():
+    return dt.datetime.utcnow() + dt.timedelta(hours=3)
+
+
+def due_at(post):
+    return dt.datetime.fromisoformat(f"{post['date']}T{post.get('time', '12:30')}")
 
 
 def call(method, path, **params):
@@ -167,8 +172,9 @@ def main():
         f = d / 'post.json'
         if f.exists():
             post = json.loads(f.read_text(encoding='utf-8'))
-            if dt.date.fromisoformat(post['date']) <= today_tr():
+            if due_at(post) <= now_tr():
                 due.append((d, post))
+    due.sort(key=lambda x: (due_at(x[1]), x[0].name))
     if not due:
         print('Nothing due today.')
         return

@@ -24,6 +24,15 @@ KARSILAMA = (
     "Sorunuzu buraya yazabilirsiniz, en kısa sürede dönüyoruz. Hızlı ulaşmak için WhatsApp: 0543 311 53 47"
 )
 
+# "KOKPİT" yazanlar 20 dakikalık demo istiyor: gün/saat soralım, insan devam etsin.
+DEMO = (
+    "Merhaba! KOKPİT mesajınız bize ulaştı 🙌\n\n"
+    "ROTA Kokpit'i sizin işlerinizle 20 dakikada gösterelim. Size uygun gün ve saati, "
+    "bir de atölyenizin adını buraya yazmanız yeterli; ekibimiz dönüp görüntülü görüşmeyi ayarlayacak.\n\n"
+    "Beklemeden bakmak isterseniz hesap açmadan gezebilirsiniz: https://rota-bulutt.vercel.app/deneyin\n"
+    "Hızlı ulaşmak için WhatsApp: 0543 311 53 47"
+)
+
 
 def main():
     if not TOKEN:
@@ -33,7 +42,7 @@ def main():
     karsilanan = set(json.loads(STATE.read_text())) if STATE.exists() else set()
     simdi = dt.datetime.now(dt.timezone.utc)
     try:
-        konusmalar = api('GET', 'me/conversations', {'platform': 'instagram', 'fields': 'id,updated_time,messages.limit(20){from,created_time}', 'limit': 25}).get('data', [])
+        konusmalar = api('GET', 'me/conversations', {'platform': 'instagram', 'fields': 'id,updated_time,messages.limit(20){from,created_time,message}', 'limit': 25}).get('data', [])
     except RuntimeError as e:
         print(f'::error::Mesajlar okunamadı (izin eksik olabilir: instagram_business_manage_messages / "Mesajlara erişime izin ver"): {e}')
         raise SystemExit(1)
@@ -50,12 +59,13 @@ def main():
         if simdi - son > dt.timedelta(hours=23):
             continue
         kime = (onlardan[0].get('from') or {})
+        metin = DEMO if any('kokpit' in norm(m.get('message')) for m in onlardan) else KARSILAMA
         yeni += 1
         if TEST:
-            print(f"TEST: @{kime.get('username')} karşılanacaktı")
+            print(f"TEST: @{kime.get('username')} karşılanacaktı ({'demo' if metin is DEMO else 'genel'})")
             continue
         try:
-            api('POST', f'{uid}/messages', body={'recipient': {'id': kime['id']}, 'message': {'text': KARSILAMA}})
+            api('POST', f'{uid}/messages', body={'recipient': {'id': kime['id']}, 'message': {'text': metin}})
         except RuntimeError as e:
             print(f"::warning::@{kime.get('username')} karşılanamadı: {e}")
             continue
