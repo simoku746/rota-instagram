@@ -25,3 +25,13 @@ Bu dosya, her pazartesi çalışan zamanlanmış görevin izleyeceği adımlard�
     - Yalnızca yeni klasörleri commit'le, `main` dalına **doğrudan push etme**.
     - Pull request aç: başlık "Instagram · <ilk tarih> haftası", gövdede günlere göre tablo (tarih, tür, başlık).
 11. Kullanıcıya Türkçe kısa mesaj gönder: haftanın konuları, temas sayfası görseli ve PR linki. Not: "Onaylıyorsanız GitHub'da (telefondaki uygulamadan da olur) **Merge** deyin; birleştirmezseniz hiçbir şey paylaşılmaz."
+
+## Profil düzeni ve tema kuralları (21.10.2026)
+
+- **Her 3 ardışık paylaşım aynı temada** (profil ızgarasında bir satır). Temalar ROTA'nın görünüm temalarıdır:
+  Rota İmza (kırık beyaz + turuncu), Gece Rotası (koyu lacivert), Finans Merkezi (açık gri + lacivert), Sessiz Ofis (yumuşak gri + adaçayı), Kokpit (krem + turuncu).
+- Satırlar açık/koyu dönüşümlü: açık tema → Gece Rotası → başka bir açık tema → Gece Rotası…
+- Her temanın kendi animasyon karakteri var: İmza kayarak, Gece bulanıklıktan netleşerek, Finans soldan sağa perde açılarak, Sessiz yumuşak solarak, Kokpit zıplayarak gelir.
+- Sıra `scratchpad/reels3/themes.py` içindeki `SIRA` listesinde. Yeni içerik eklerken 3'lü blok olarak ekleyin; bir paylaşım kaçarsa ya da silinirse satırlar kayar.
+- **Kaydırmalı gönderiler** tek geniş tuval olarak çizilip dilimlenir; en az bir öğe (büyük rakam, çizgi, ok) 1. ve 2. fotoğrafın sınırından geçer, böylece kaydırınca devam eder.
+- Reels'lerin kapağı 2.3. saniyedeki kanca karesidir (`kapak.jpg`), ızgarada okunaklı görünür.
