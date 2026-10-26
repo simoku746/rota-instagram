@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-05",
+  "theme": "imza",
+  "kind": "istatistik",
+  "tag": "Örnek hesap",
+  "intro": "Yoğun bir haftada<br>montaj yükü:",
+  "number": "50",
+  "unit": "saat",
+  "boxes": [
+    [
+      "10",
+      "montaj (örnek)"
+    ],
+    [
+      "5 saat",
+      "montaj başına"
+    ],
+    [
+      "10 saat",
+      "1 gün yağmurda kayar"
+    ]
+  ],
+  "note": "Örnek hesaptır; yol ve hazırlık hariç. Kayan işin hangi güne, hangi ekibe düştüğü sözle değil, planda görünmeli.",
+  "footer": "Haftalık plan: <b>rotasigns.com</b>",
+  "caption": "Yoğun haftalarda montaj listesi uzar, ekip aynı kalır.\n\nÖrnek bir hesap: haftada 10 montaj, her biri ortalama 5 saat sürerse 50 saat eder. Bir gün yağmur yağar ve iki montaj ertelenirse 10 saatlik iş başka günlere kayar; yol ve hazırlık hariç. (Rakamlar örnektir.)\n\nBu kaymayı sabah telefonla çözmek yerine haftalık planda önceden görmek işi kolaylaştırır.\n\nROTA'yı 14 gün ücretsiz deneyin, kredi kartı gerekmez → rotasigns.com\n\n#tabelacı #reklamatölyesi #üretimplanlama #ledtabela #ROTA"
+}

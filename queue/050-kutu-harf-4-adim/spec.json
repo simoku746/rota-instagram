@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-07",
+  "theme": "gece",
+  "kind": "karusel",
+  "tag": "Atölye notları",
+  "step_label": "Adım",
+  "cover": {
+    "big": "4",
+    "title": "adımda",
+    "title_orange": "kutu harf.",
+    "body": "Keşiften montaja, işin el değiştirdiği dört nokta. Aksaklıklar çoğunlukla bu geçişlerde çıkar."
+  },
+  "slides": [
+    {
+      "title": "Ölçü ve<br>teklif",
+      "problem": "Harf yüksekliği, cephe ölçüsü ve ışık tipi netleşmeden çıkan teklif, iş başlarken yeniden sahaya gitmek demektir.",
+      "fix": "Teklif listede durur; kabul edilince tek adımda işe dönüşür.",
+      "screen": "ekran-teklif-kabul.jpg"
+    },
+    {
+      "title": "Tasarım ve<br>onay",
+      "problem": "Font, renk ve ışık tercihi yazılı onaylanmadan kesime girilirse pleksi de emek de boşa gider.",
+      "fix": "Revizyon ve müşteri onayı kartta; onay gelmeden üretime geçilmez.",
+      "screen": "ekran-musteri-onayi.jpg"
+    },
+    {
+      "title": "Malzeme ve<br>üretim",
+      "problem": "Kesim, büküm, LED dizimi… Profil ya da LED üretimin ortasında biterse iş bekler.",
+      "fix": "Stok hareketlerden hesaplanır; kritik malzeme için uyarı gelir.",
+      "screen": "ekran-depo-stok.jpg"
+    },
+    {
+      "title": "Montaj ve<br>teslim",
+      "problem": "Ekip, araç ve saat önceden belli değilse montaj sabahı telefonla planlanır.",
+      "fix": "Haftalık planda ekip ve gün belli; montaj bitince muhasebe haberdar olur.",
+      "screen": "ekran-haftalik-plan.jpg"
+    }
+  ],
+  "cta": {
+    "title": "Dört adım,",
+    "title_orange": "tek yerde.",
+    "body": "Bu adımları kendi işlerinizde görmek için ROTA'yı 14 gün ücretsiz deneyin."
+  },
+  "caption": "Kutu harf işi atölyede kaç el değiştiriyor? Satış, tasarım, üretim, montaj… Her geçişte bir bilgi düşebilir.\n\n1. Ölçü ve teklif\n2. Tasarım ve müşteri onayı\n3. Malzeme ve üretim\n4. Montaj ve teslim\n\nKaydedin, ekibinizle paylaşın.\n\nBağlantıyı DM'den göndermemiz için yorumlara DENEME yazın 👇\n\n#tabelacı #kutuharf #ledtabela #reklamatölyesi #ROTA"
+}
