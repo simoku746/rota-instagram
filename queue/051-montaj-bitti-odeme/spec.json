@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-08",
+  "theme": "gece",
+  "kind": "sohbet",
+  "tag": "Tanıdık geldi mi?",
+  "title": "Montaj bitti,",
+  "title_orange": "kalan ödeme kimde?",
+  "group": "Atölye Grubu",
+  "members": "Murat, Selin, Emre",
+  "messages": [
+    [
+      "Emre",
+      "Ege Mobilya'nın tabelası takıldı, ışıklar yandı 👍",
+      "17:42"
+    ],
+    [
+      "Murat",
+      "Eline sağlık. Kalan ödemeyi kim istiyor?",
+      "17:50"
+    ],
+    [
+      "Selin",
+      "Montajın bittiğini şimdi duydum 😅 Kapora ne kadardı?",
+      "18:15"
+    ],
+    [
+      null,
+      "Defterde olacak, yarın bakarım",
+      "18:31"
+    ]
+  ],
+  "card": {
+    "label": "ROTA · İş kartı",
+    "title": "Ege Mobilya · Işıklı tabela",
+    "lines": [
+      [
+        "Aşama",
+        "Montaj tamamlandı"
+      ],
+      [
+        "Muhasebe",
+        "Haberdar edildi"
+      ],
+      [
+        "Tahsilat",
+        "Takipte"
+      ]
+    ]
+  },
+  "caption": "Tabela takıldı, ışıklar yandı, ekip fotoğrafı gruba attı. Muhasebe ise montajın bittiğini ertesi gün duyuyor.\n\nKalan ödeme bir kişinin aklında ya da defterde kalınca tahsilat günlerce gecikebilir.\n\nROTA'da montaj tamamlanınca muhasebe haberdar olur; kapora ve kalan tutar kasa ve tahsilat tarafında takip edilir.\n\nHesap açmadan, örnek verilerle gezin → rotasigns.com\n\n#tabelacı #reklamatölyesi #iştakipprogramı #ledtabela #ROTA"
+}
