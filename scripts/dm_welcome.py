@@ -19,7 +19,7 @@ TEST = len(sys.argv) > 1 and sys.argv[1] == 'test'
 KARSILAMA = (
     "Merhaba, mesajınız için teşekkürler! 🙌 Ben ROTA ekibinden.\n\n"
     "ROTA; tabela, reklam ve üretim atölyeleri için iş takip programı: teklif, üretim, montaj, stok ve tahsilat tek ekranda.\n\n"
-    "• Hesap açmadan örnek verilerle gezin: https://rotasigns.com\n"
+    "• Hesap açmadan örnek verilerle gezin: https://rotasigns.com/?utm_source=instagram&utm_medium=dm\n"
     "• 14 gün ücretsiz deneyin (kredi kartı gerekmez): https://rota-bulutt.vercel.app/kayit?kaynak=ig-dm\n\n"
     "Sorunuzu buraya yazabilirsiniz, en kısa sürede dönüyoruz. Hızlı ulaşmak için WhatsApp: 0543 311 53 47"
 )

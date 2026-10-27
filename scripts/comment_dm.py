@@ -25,7 +25,7 @@ TEST = len(sys.argv) > 1 and sys.argv[1] == 'test'
 ANAHTAR = ('deneme', 'demo', 'bilgi', 'link', 'fiyat', 'kokpit')
 DM_METNI = (
     "Merhaba! ROTA'ya ilginiz için teşekkürler 🙌\n\n"
-    "Hesap açmadan, örnek verilerle hemen gezebilirsiniz: https://rotasigns.com\n\n"
+    "Hesap açmadan, örnek verilerle hemen gezebilirsiniz: https://rotasigns.com/?utm_source=instagram&utm_medium=dm\n\n"
     "Kendi atölyenizle denemek için 14 gün ücretsiz hesap (kredi kartı gerekmez):\n"
     "https://rota-bulutt.vercel.app/kayit?kaynak=ig-dm\n\n"
     "Sorunuz olursa buradan yazın ya da WhatsApp: 0543 311 53 47"
